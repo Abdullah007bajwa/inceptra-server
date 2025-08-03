@@ -1,0 +1,52 @@
+{
+  "name": "inceptra-server",
+  "version": "1.0.0",
+  "description": "",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon",
+    "build": "tsc",
+    "start": "node dist/server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "packageManager": "pnpm@10.13.1",
+  "dependencies": {
+    "@clerk/backend": "^2.4.2",
+    "@clerk/clerk-sdk-node": "^5.1.6",
+    "@clerk/express": "^1.7.5",
+    "@huggingface/inference": "^4.4.0",
+    "@prisma/client": "^6.11.1",
+    "@types/sharp": "^0.32.0",
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.0",
+    "express": "^4.21.2",
+    "express-async-errors": "^3.1.1",
+    "fetch-blob": "^4.0.0",
+    "multer": "^2.0.1",
+    "node-fetch": "^3.3.2",
+    "openai": "^5.9.0",
+    "pdf-parse": "^1.1.1",
+    "pdfjs-dist": "^5.3.93",
+    "prisma": "^6.11.1",
+    "sharp": "^0.34.3",
+    "stripe": "^18.3.0",
+    "zod": "^3.25.76"
+  },
+  "devDependencies": {
+    "@types/body-parser": "^1.19.6",
+    "@types/cors": "^2.8.19",
+    "@types/express": "^5.0.3",
+    "@types/multer": "^2.0.0",
+    "@types/node": "^24.0.13",
+    "@types/pdf-parse": "^1.1.5",
+    "body-parser": "^2.2.0",
+    "dotenv-cli": "^8.0.0",
+    "nodemon": "^3.1.10",
+    "ts-node": "^10.9.2",
+    "tsx": "^4.20.3",
+    "typescript": "^5.8.3"
+  }
+}

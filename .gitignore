@@ -1,0 +1,106 @@
+# 🔄 Inceptra Server - .gitignore
+
+# ===== DEPENDENCIES =====
+node_modules/
+.pnpm-store/
+.pnpm-debug.log*
+
+# ===== ENVIRONMENT FILES =====
+.env
+.env.*
+!.env.example
+
+# ===== BUILD OUTPUTS =====
+dist/
+build/
+out/
+
+# ===== LOGS =====
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+logs/
+
+# ===== RUNTIME FILES =====
+*.local
+.DS_Store
+Thumbs.db
+
+# ===== IDE & EDITOR FILES =====
+.vscode/
+!.vscode/extensions.json
+!.vscode/settings.json
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# ===== PACKAGE MANAGER FILES =====
+package-lock.json
+yarn.lock
+bun.lockb
+# Keep pnpm-lock.yaml for reproducible builds
+
+# ===== DATABASE =====
+*.db
+*.sqlite
+*.sqlite3
+
+# ===== PRISMA =====
+prisma/.env
+prisma/migrations/*/migration.sql-journal
+
+# ===== TESTING =====
+coverage/
+.nyc_output/
+.jest/
+
+# ===== TEMPORARY FILES =====
+*.tmp
+*.temp
+.cache/
+.temp/
+
+# ===== UPLOADED FILES =====
+uploads/
+temp/
+public/uploads/
+
+# ===== SECURITY =====
+*.pem
+*.key
+*.crt
+*.p12
+*.pfx
+
+# ===== OS GENERATED =====
+.DS_Store?
+ehthumbs.db
+Icon?
+Thumbs.db
+
+# ===== NODE SPECIFIC =====
+.npm/
+.eslintcache
+
+# ===== BACKUP FILES =====
+*.bak
+*.backup
+*.old
+
+# ===== COMPRESSED FILES =====
+*.zip
+*.tar.gz
+*.rar
+*.7z
+
+# ===== AI/ML MODELS =====
+*.model
+*.bin
+*.safetensors
+models/
