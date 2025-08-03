@@ -4,9 +4,9 @@ import express, { Request, Response } from "express";
 import { z } from "zod";
 import dotenv from "dotenv";
 import { InferenceClient } from "@huggingface/inference";
-import { prisma } from "../utils/db.js";
-import { requireAuth } from "../middleware/clerkAuth.js";
-import { enforceDailyLimit } from "../middleware/rateLimit.js";
+import { prisma } from "../utils/db";
+import { requireAuth } from "../middleware/clerkAuth";
+import { enforceDailyLimit } from "../middleware/rateLimit";
 
 type AuthedRequest = Request & { auth?: { userId?: string } };
 

@@ -1,6 +1,6 @@
 import { Request, Response, NextFunction } from "express";
 import { verifyToken } from "@clerk/backend";
-import { prisma } from "../utils/db.js";
+import { prisma } from "../utils/db";
 import dotenv from "dotenv";
 
 dotenv.config();

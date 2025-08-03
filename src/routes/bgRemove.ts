@@ -3,9 +3,9 @@
 import express, { Request, Response } from "express";
 import multer from "multer";
 import { InferenceClient } from "@huggingface/inference";
-import { requireAuth } from "../middleware/clerkAuth.js";
-import { enforceDailyLimit } from "../middleware/rateLimit.js";
-import { prisma } from "../utils/db.js";
+import { requireAuth } from "../middleware/clerkAuth";
+import { enforceDailyLimit } from "../middleware/rateLimit";
+import { prisma } from "../utils/db";
 import { Blob } from "fetch-blob";
 import { Buffer } from "buffer";
 import sharp from "sharp";

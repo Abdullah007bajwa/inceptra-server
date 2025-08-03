@@ -4,13 +4,13 @@ import dotenv from "dotenv";
 import "express-async-errors";
 
 // Route imports
-import stripeRoutes from "./routes/stripe.ts";
-import articleRoute from "./routes/article.ts";
-import imageRoute from "./routes/image.js";
-import resumeRoute from "./routes/resume.js";
-import historyRoute from "./routes/history.js";
-import bgRemoveRoute from "./routes/bgRemove.js";
-import { prisma } from "./utils/db.js";
+import stripeRoutes from "./routes/stripe";
+import articleRoute from "./routes/article";
+import imageRoute from "./routes/image";
+import resumeRoute from "./routes/resume";
+import historyRoute from "./routes/history";
+import bgRemoveRoute from "./routes/bgRemove";
+import { prisma } from "./utils/db";
 
 
 dotenv.config();

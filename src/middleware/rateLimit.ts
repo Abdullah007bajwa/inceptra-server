@@ -1,5 +1,5 @@
 import { Request, Response, NextFunction } from "express";
-import { prisma } from "../utils/db.js";
+import { prisma } from "../utils/db";
 
 type AuthedRequest = Request & { auth: { userId: string } };
 

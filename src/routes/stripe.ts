@@ -1,9 +1,9 @@
 import Stripe from "stripe";
 import express, { Request, Response } from "express";
 import bodyParser from "body-parser";
-import { requireAuth } from "../middleware/clerkAuth.js";
+import { requireAuth } from "../middleware/clerkAuth";
 
-import { prisma } from "../utils/db.js";
+import { prisma } from "../utils/db";
 
 const router = express.Router();
 

@@ -2,9 +2,9 @@
 
 import express, { Request, Response } from "express";
 import { InferenceClient } from "@huggingface/inference";
-import { requireAuth } from "../middleware/clerkAuth.js";
-import { prisma } from "../utils/db.js";
-import { enforceDailyLimit } from "../middleware/rateLimit.js";
+import { requireAuth } from "../middleware/clerkAuth";
+import { prisma } from "../utils/db";
+import { enforceDailyLimit } from "../middleware/rateLimit";
 type AuthedRequest = Request & { auth?: { userId?: string } };
 const router = express.Router();
 

@@ -1,8 +1,8 @@
 // server/src/routes/history.ts
 
 import express, { Request, Response } from "express";
-import { requireAuth } from "../middleware/clerkAuth.js";
-import { prisma } from "../utils/db.js";
+import { requireAuth } from "../middleware/clerkAuth";
+import { prisma } from "../utils/db";
 type AuthedRequest = Request & { auth?: { userId?: string } };
 const router = express.Router();
 

@@ -3,10 +3,10 @@
 import express, { Request, Response } from "express";
 import multer from "multer";
 import { InferenceClient } from "@huggingface/inference";
-import { requireAuth } from "../middleware/clerkAuth.js";
-import { enforceDailyLimit } from "../middleware/rateLimit.js";
-import { prisma } from "../utils/db.js";
-import { extractTextFromPdf } from "../utils/pdfExtract.js";
+import { requireAuth } from "../middleware/clerkAuth";
+import { enforceDailyLimit } from "../middleware/rateLimit";
+import { prisma } from "../utils/db";
+import { extractTextFromPdf } from "../utils/pdfExtract";
 type AuthedRequest = Request & { auth?: { userId?: string } };
 const router = express.Router();
 const hf = new InferenceClient(process.env.HF_TOKEN!);

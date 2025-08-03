@@ -3,8 +3,8 @@
     "module": "ESNext",
     "target": "ES2020",
     "moduleResolution": "node",
-    "allowImportingTsExtensions": true,
-    "noEmit": true,
+    "allowImportingTsExtensions": false,
+    "noEmit": false,
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "skipLibCheck": true,
@@ -12,7 +12,11 @@
     "outDir": "dist",
     "baseUrl": "./",
     "typeRoots": ["./types", "./node_modules/@types"],
-    "types": []  // 👈 Add this line
+    "types": [],
+    "resolveJsonModule": true,
+    "declaration": false,
+    "sourceMap": true
   },
-  "include": ["src", "types"]
+  "include": ["src", "types"],
+  "exclude": ["node_modules", "dist"]
 }
