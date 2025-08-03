@@ -1,6 +1,8 @@
 import express, { Request, Response, NextFunction } from "express";
 import cors from "cors";
 import dotenv from "dotenv";
+import helmet from "helmet";
+import rateLimit from "express-rate-limit";
 import "express-async-errors";
 
 // Route imports
@@ -31,7 +33,35 @@ if (!process.env.CLIENT_URL) {
 
 const app = express();
 
-// CORS middleware
+// Security middleware
+app.use(helmet({
+  contentSecurityPolicy: {
+    directives: {
+      defaultSrc: ["'self'"],
+      styleSrc: ["'self'", "'unsafe-inline'"],
+      scriptSrc: ["'self'"],
+      imgSrc: ["'self'", "data:", "https:"],
+      connectSrc: ["'self'", "https://api.clerk.dev", "https://api.huggingface.co"],
+    },
+  },
+  crossOriginEmbedderPolicy: false,
+}));
+
+// Rate limiting
+const limiter = rateLimit({
+  windowMs: 15 * 60 * 1000, // 15 minutes
+  max: 100, // limit each IP to 100 requests per windowMs
+  message: {
+    error: "Too many requests from this IP, please try again later.",
+    code: "RATE_LIMIT_EXCEEDED"
+  },
+  standardHeaders: true,
+  legacyHeaders: false,
+});
+
+app.use(limiter);
+
+// CORS middleware - Production ready
 app.use(
   cors({
     origin: function (origin, callback) {
@@ -39,16 +69,20 @@ app.use(
       if (!origin) return callback(null, true);
       
       const allowedOrigins = [
-        process.env.CLIENT_URL || "http://localhost:5173",
-        "http://localhost:5173",
-        "http://127.0.0.1:5173",
-        "http://192.168.56.1:5173", // Your current IP
-        "http://192.168.1.1:5173",
-        "http://192.168.0.1:5173",
-        "https://frontend-lake-zeta-90.vercel.app" // Your Vercel frontend
+        process.env.CLIENT_URL,
+        "https://frontend-lake-zeta-90.vercel.app"
       ];
       
-      if (allowedOrigins.indexOf(origin) !== -1) {
+      // Only allow development origins in development
+      if (process.env.NODE_ENV === "development") {
+        allowedOrigins.push(
+          "http://localhost:5173",
+          "http://127.0.0.1:5173",
+          "http://192.168.56.1:5173"
+        );
+      }
+      
+      if (allowedOrigins.includes(origin)) {
         callback(null, true);
       } else {
         console.log(`🚫 CORS blocked origin: ${origin}`);
