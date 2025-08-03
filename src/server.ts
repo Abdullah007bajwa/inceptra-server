@@ -60,19 +60,19 @@ app.use(
   })
 );
 
-// Stripe webhook route
-app.post("/api/stripe/webhook", express.raw({ type: "application/json" }), stripeRoutes);
-
 // Parse JSON
 app.use(express.json());
 
 // Health check
+app.get("/", (_, res) => {
+  res.json({ message: "Inceptra AI API is running" });
+});
+
 app.get("/api/health", (_, res) => {
   res.json({ message: "Inceptra API is running" });
 });
 
 // Mount routes
-app.post("/api/stripe/webhook", express.raw({ type: "application/json" }), stripeRoutes);
 app.use("/api/stripe", stripeRoutes);
 app.use("/api/article", articleRoute);
 app.use("/api/image", imageRoute);
