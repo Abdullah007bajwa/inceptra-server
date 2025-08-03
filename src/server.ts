@@ -44,7 +44,8 @@ app.use(
         "http://127.0.0.1:5173",
         "http://192.168.56.1:5173", // Your current IP
         "http://192.168.1.1:5173",
-        "http://192.168.0.1:5173"
+        "http://192.168.0.1:5173",
+        "https://frontend-lake-zeta-90.vercel.app" // Your Vercel frontend
       ];
       
       if (allowedOrigins.indexOf(origin) !== -1) {
