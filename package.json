@@ -41,7 +41,6 @@
     "@types/multer": "^2.0.0",
     "@types/node": "^24.0.13",
     "@types/pdf-parse": "^1.1.5",
-    "@types/sharp": "^0.32.0",
     "body-parser": "^2.2.0",
     "dotenv-cli": "^8.0.0",
     "nodemon": "^3.1.10",
