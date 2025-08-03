@@ -16,8 +16,7 @@ import { prisma } from "./utils/db.js";
 dotenv.config();
 
 // Global error handlers
-process.on("uncaughtException", (err) => {
-  console.error("❌ Uncaught Exception:", err);
+process.on("uncaughtException", (err: unknown) => {  console.error("❌ Uncaught Exception:", err);
   process.exit(1);
 });
 
@@ -97,8 +96,7 @@ const gracefulShutdown = async (signal: string) => {
   console.log(`\n🛑 Received ${signal}. Starting graceful shutdown...`);
   
   // Stop accepting new connections
-  server.close((err) => {
-    if (err) {
+  server.close((err: unknown) => {    if (err) {
       console.error("❌ Error during server close:", err);
       process.exit(1);
     }
@@ -111,8 +109,7 @@ const gracefulShutdown = async (signal: string) => {
         console.log("✅ Database connections closed");
         process.exit(0);
       })
-      .catch((err) => {
-        console.error("❌ Error closing database connections:", err);
+      .catch((err: unknown) => {        console.error("❌ Error closing database connections:", err);
         process.exit(1);
       });
   });
@@ -123,8 +120,7 @@ process.on("SIGTERM", () => gracefulShutdown("SIGTERM"));
 process.on("SIGINT", () => gracefulShutdown("SIGINT"));
 
 // Handle uncaught exceptions with graceful shutdown
-process.on("uncaughtException", async (err) => {
-  console.error("❌ Uncaught Exception:", err);
+process.on("uncaughtException", async (err: unknown) => {  console.error("❌ Uncaught Exception:", err);
   await gracefulShutdown("uncaughtException");
 });
 
